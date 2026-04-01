@@ -18,15 +18,14 @@ export default function Home() {
          
           </h1>
 
-          <SplitLines
-                        tag="h1"
-                        text=" Our pieces are sustainable in more ways than one. It’s not just down to the materials we use, but they’re transformable, meaning there’s never just one way to wear them"
-                        className="text-[5rem] tracking-[-0.01em] text-white"
-                        duration={1}
-                        stagger={0.1}
-                        rootMargin="-150px"
-                        
-                      />
+         <SplitLines
+  tag="h1"
+  text=" Our pieces are sustainable in more ways than one. It's not just down to the materials we use, but they're transformable, meaning there's never just one way to wear them"
+  className="text-[3rem] tracking-[-0.01em] text-white"
+  duration={1}
+  stagger={0.1}
+  start="top 85%"
+/>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
