@@ -1,8 +1,17 @@
+"use client";
 import { SplitLines } from "@/components/animations/SplitLines";
+import MenuModal from "@/components/menu-modal";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [openMenu, setOpenMenu] = useState(false);
   return (
+
+   <>
+   {openMenu && (
+    <MenuModal openMenuModal={openMenu} setOpenMenuModal={setOpenMenu}/>
+   )}
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Image
@@ -17,7 +26,7 @@ export default function Home() {
           <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
          
           </h1>
-
+{/* 
          <SplitLines
   tag="h1"
   text=" Our pieces are sustainable in more ways than one. It's not just down to the materials we use, but they're transformable, meaning there's never just one way to wear them"
@@ -25,7 +34,20 @@ export default function Home() {
   duration={1}
   stagger={0.1}
   start="top 85%"
+/> */}
+
+
+         <SplitLines
+  tag="h1"
+  text=" Our pieces are sustainable in more ways than one. It's not just down to the materials we use, but they're transformable, meaning there's never just one way to wear them"
+  className="text-[3rem] tracking-[-0.01em] text-white"
+  duration={1}
+  stagger={0.1}
+  rootMargin="-150px"
 />
+
+         <button onClick={() => setOpenMenu(true)}>Menu</button>
+
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
             Looking for a starting point or more instructions? Head over to{" "}
             <a
@@ -71,5 +93,6 @@ export default function Home() {
         </div>
       </main>
     </div>
+   </>
   );
 }

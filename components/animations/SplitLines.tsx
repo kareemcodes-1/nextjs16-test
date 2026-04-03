@@ -4,9 +4,8 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitText from "gsap/SplitText";
-import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
+gsap.registerPlugin(useGSAP, SplitText);
 
 export interface SplitLinesProps {
   tag?: keyof React.JSX.IntrinsicElements;
@@ -16,8 +15,8 @@ export interface SplitLinesProps {
   stagger?: number;
   ease?: string;
   yPercent?: number;
-  start?: string;
-  markers?: boolean;
+  threshold?: number;
+  rootMargin?: string;
 }
 
 export const SplitLines: React.FC<SplitLinesProps> = ({
@@ -28,14 +27,15 @@ export const SplitLines: React.FC<SplitLinesProps> = ({
   stagger = 0.1,
   ease = "power3.out",
   yPercent = 100,
-  start = "top 90%",
-  markers = false,
+  threshold = 0.1,
+  rootMargin = "0px",
 }) => {
   const containerRef = useRef<HTMLElement>(null);
+  const animated = useRef(false);
 
   useGSAP(
     () => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || animated.current) return;
 
       // 1. Outer split FIRST — creates the mask wrappers
       const outerSplit = new SplitText(containerRef.current, {
@@ -53,22 +53,29 @@ export const SplitLines: React.FC<SplitLinesProps> = ({
       gsap.set(outerSplit.lines, { overflow: "hidden" });
       gsap.set(innerSplit.lines, { yPercent });
 
-      // 4. ScrollTrigger fires the animation once when element enters viewport
-      gsap.to(innerSplit.lines, {
-        yPercent: 0,
-        duration,
-        stagger,
-        ease,
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start,
-          markers,
-          once: true,
+      // 4. Intersection Observer triggers the animation
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+
+          animated.current = true;
+
+          gsap.to(innerSplit.lines, {
+            yPercent: 0,
+            duration,
+            stagger,
+            ease,
+          });
+
+          observer.disconnect();
         },
-      });
+        { threshold, rootMargin }
+      );
+
+      observer.observe(containerRef.current);
 
       return () => {
-        ScrollTrigger.getAll().forEach((st) => st.kill());
+        observer.disconnect();
         innerSplit.revert();
         outerSplit.revert();
       };
