@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AuthProvider from "./providers/provider";
-import ToastProvider from "./providers/toast-provider";
-import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer";
-import { getCollections } from "./actions/getCollections";
 import CTA from "./components/cta";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
@@ -31,8 +27,8 @@ export default async function RootLayout({
           <ToastProvider /> */}
           {/* <Navbar collections={collections} /> */}
           {children}
-          <CTA />
-          <Footer />
+          {/* <CTA />
+          <Footer /> */}
         {/* </AuthProvider> */}
       </body>
     </html>

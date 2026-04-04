@@ -17,10 +17,10 @@ export default function Home() {
   return (
     <>
 
-      {/* <Hero /> */}
+      <Hero />
 
       <About />
-      {/* <Collections /> */}
+      <Collections />
       <FeaturedProducts />
 
 
