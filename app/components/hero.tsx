@@ -1,5 +1,5 @@
 "use client";
-import { useScroll, useTransform, motion } from "motion/react";
+// import { useScroll, useTransform, motion } from "motion/react";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
@@ -14,14 +14,14 @@ const Hero = () => {
   const heroImage = useRef<HTMLImageElement | null>(null);
   const heroLink = useRef<HTMLAnchorElement | null>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: container,
-    offset: ["start start", "end start"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: container,
+  //   offset: ["start start", "end start"],
+  // });
 
 
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0vh", "100vh"]);
+  // const y = useTransform(scrollYProgress, [0, 1], ["0vh", "100vh"]);
 
   // useEffect(() => {
   //   const isMobile = window.innerWidth < 768;
@@ -109,7 +109,7 @@ const Hero = () => {
       ref={container}
       className="w-full h-screen sticky top-0"
     >
-      <motion.section style={{ y }} className="relative h-full w-full">
+      <section  className="relative h-full w-full">
         <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none overlay" />
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
@@ -156,7 +156,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };
