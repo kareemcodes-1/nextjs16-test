@@ -3,9 +3,11 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
-import { Product } from "../../../../types";
+import { Product } from "@/types";
 
+// @ts-ignore
 import "swiper/css";
+// @ts-ignore
 import "swiper/css/navigation";
 import ProductCard from "../products/product-card";
 

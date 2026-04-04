@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getCollections } from "../../actions/getCollections";
 import gsap from "gsap";
 import SplitText from "gsap/SplitText";
-import { Collection } from "../../../../types";
+import { Collection } from "@/types";
 import Image from "next/image";
 import CollectionCard from "./collection-card";
 

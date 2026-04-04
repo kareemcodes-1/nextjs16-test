@@ -6,6 +6,10 @@ import Navbar from "./components/navbar/navbar";
 import Footer from "./components/footer";
 import { getCollections } from "./actions/getCollections";
 import CTA from "./components/cta";
+import { Inter } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Zuvora - More Than Just Clothes.",
@@ -20,7 +24,7 @@ export default async function RootLayout({
   // const collections = await getCollections();
 
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", inter.variable)}>
       <body className="antialiased">
 {/* 
         <AuthProvider>

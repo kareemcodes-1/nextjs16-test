@@ -2,10 +2,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Product } from "../../../../types";
+import { Product } from "@/types";
 
+// @ts-ignore
 import "swiper/css";
+// @ts-ignore
 import "swiper/css/pagination";
+// @ts-ignore
 import "swiper/css/navigation";
 import ProductCard from "../../components/products/product-card";
 

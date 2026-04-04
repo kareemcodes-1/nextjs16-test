@@ -176,7 +176,7 @@ const CartModal = ({ openCartModal, setOpenCartModal }: CartModalProps) => {
               <div className="flex justify-between items-center mb-[1.5rem]">
                 <span className="text-[.85rem] lg:text-[.95rem] font-[300]">Subtotal</span>
                 <span className="text-[.85rem] lg:text-[.95rem] font-[300]">
-                  {priceFormatter(cartItems.reduce((acc, { item, quantity }) => acc + item.price * quantity, 0))}
+                  {priceFormatter(cartItems.reduce((acc, {item, quantity }) => acc + item.price * quantity, 0))}
                 </span>
               </div>
             </div>

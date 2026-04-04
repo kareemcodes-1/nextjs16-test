@@ -1,7 +1,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Collection } from "../../../../types";
+import { Collection } from "@/types";
 import Image from "next/image";
 
 const CollectionCard = ({ collections }: {collections: Collection[]}) => {

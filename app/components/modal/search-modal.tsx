@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { X, Search } from "lucide-react";
 import { getProducts } from "@/app/actions/getProducts";
-import { Product } from "../../../../types";
+import { Product } from "@/types";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
