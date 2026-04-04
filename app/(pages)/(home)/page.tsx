@@ -1,6 +1,5 @@
 // "use client";
 // import { useEffect } from "react";
-import About from "../../components/about";
 import Hero from "../../components/hero";
 import Testimonials from "../../components/testimonials";
 
@@ -15,7 +14,6 @@ export default function Home() {
 
       <Hero />
 
-      <About />
       {/* <Collections /> */}
       {/* <FeaturedProducts /> */}
 
@@ -23,7 +21,7 @@ export default function Home() {
       {/* <VideoPreview /> */}
       {/* <BestSellers /> */}
 
-      <Testimonials />
+      {/* <Testimonials /> */}
 
     </>
   );
