@@ -20,14 +20,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", inter.variable)}>
       <body className="antialiased">
-{/* 
-        <AuthProvider>
-          <ToastProvider /> */}
-          {/* <Navbar collections={collections} /> */}
           {children}
-          {/* <CTA />
-          <Footer /> */}
-        {/* </AuthProvider> */}
       </body>
     </html>
   );
