@@ -41,6 +41,32 @@ button:disabled{
   text-transform: uppercase !important;
 }
 
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../font/Telegraf_UltraLight_200.otf') format('opentype');
+    /* font-weight: 300; */
+    font-style: normal;
+    font-display: swap;
+      font-display: optional;
+}
+
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../font/Telegraf_UltraBold_800.otf') format('opentype');
+    /* font-weight: 300; */
+    font-style: normal;
+    font-display: swap;
+      font-display: optional;
+}
+
+@font-face {
+    font-family: 'Telegraf';
+    src: url('../font/TelegrafRegular_272984568a25d8528fe2de8b20b29011.otf') format('opentype');
+    /* font-weight: 300; */
+    font-style: normal;
+    font-display: swap;
+      font-display: optional;
+}
 
 
 h1, h2, h3, label, button, input, ::placeholder{
@@ -174,6 +200,26 @@ a, p, span{
 .btn--icon-left::after  { left: calc(2.22291667vw); }
 .btn--icon-right::after { right: calc(1.82291667vw); }
 
+/* ─── ARROW IMAGES ──────────────────────────────────── */
+.btn--light.btn--icon-left::after  { background-image: url(../public/arrowhead-left-light.svg); }
+.btn--light.btn--icon-right::after { background-image: url(../public/arrowhead-right-light.svg); }
+.btn--dark.btn--icon-left::after   { background-image: url(../public/arrowhead-left.svg); }
+.btn--dark.btn--icon-right::after  { background-image: url(../public/arrowhead-right-black.svg); }
+
+.btn--light:hover.btn--icon-left::after  { background-image: url(../public/arrowhead-left.svg); }
+.btn--light:hover.btn--icon-right::after { background-image: url(../public/arrowhead-right-black.svg); }
+.btn--dark:hover.btn--icon-left::after   { background-image: url(../public/arrowhead-left-light.svg); }
+.btn--dark:hover.btn--icon-right::after  { background-image: url(../public/arrowhead-right-light.svg); }
+
+.btn--filled-light.btn--icon-left::after  { background-image: url(../public/arrowhead-left.svg); }
+.btn--filled-light.btn--icon-right::after { background-image: url(../public/arrowhead-right-black.svg); }
+.btn--filled-dark.btn--icon-left::after   { background-image: url(../public/arrowhead-left-light.svg); }
+.btn--filled-dark.btn--icon-right::after  { background-image: url(../public/arrowhead-right-light.svg); }
+
+.btn--filled-light:hover.btn--icon-left::after  { background-image: url(../public/arrowhead-left-light.svg); }
+.btn--filled-light:hover.btn--icon-right::after { background-image: url(../public/arrowhead-right-light.svg); }
+.btn--filled-dark:hover.btn--icon-left::after   { background-image: url(../public/arrowhead-left-light.svg); }
+.btn--filled-dark:hover.btn--icon-right::after  { background-image: url(../public/arrowhead-right-light.svg); }
 
 /* ─── RESPONSIVE: TABLET ────────────────────────────── */
 @media (max-width: 1024px) {

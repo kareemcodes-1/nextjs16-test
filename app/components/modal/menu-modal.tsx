@@ -2,7 +2,11 @@
 
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import CartModal from "./cart-modal";
+import useCart from "@/store";
+import { useSession, signOut } from "next-auth/react";
 import gsap from "gsap";
+import { FlipLink } from "@/lib/flip-links";
 import { X } from "lucide-react";
 
 type MenuModalProps = {
@@ -15,7 +19,14 @@ const MenuModal: React.FC<MenuModalProps> = ({
   setOpenMenuModal,
 }) => {
   const [openCartModal, setOpenCartModal] = useState(false);
+  const { cartItems } = useCart();
+  const { data: session } = useSession();
   const modalRef = useRef<HTMLDivElement | null>(null);
+
+  const handleLogout = async () => {
+    await signOut({ redirect: true, callbackUrl: "/" });
+  };
+
   useEffect(() => {
     if (!modalRef.current) return;
 
@@ -36,6 +47,12 @@ const MenuModal: React.FC<MenuModalProps> = ({
 
   return (
     <>
+      {openCartModal && (
+        <CartModal
+          openCartModal={openCartModal}
+          setOpenCartModal={setOpenCartModal}
+        />
+      )}
 
       <div
         ref={modalRef}
@@ -54,7 +71,7 @@ const MenuModal: React.FC<MenuModalProps> = ({
         {/* Links */}
         <div className="flex flex-col gap-[1rem] text-black">
           <div className="flex items-start flex-col p-[1rem] lg:mt-[4rem] mt-[10rem] gap-[1rem]">
-            {/* <ul className="flex flex-col gap-[2rem] font-medium tracking-[.2rem]">
+            <ul className="flex flex-col gap-[2rem] font-medium tracking-[.2rem]">
               <Link
                 href="/"
                 className="cursor-pointer telegraf font-[200] xl:text-[7rem] lg:text-[5rem] text-[3rem]"
@@ -100,7 +117,7 @@ const MenuModal: React.FC<MenuModalProps> = ({
                   <FlipLink>SIGN IN</FlipLink>
                 </Link>
               )}
-            </ul> */}
+            </ul>
           </div>
         </div>
       </div>
