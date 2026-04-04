@@ -132,14 +132,12 @@ const Hero = () => {
   text="JEWELLERY MADE TO"
   className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
   duration={0.8}
-  start="0%"
 />
 <SplitLines
   tag="h1"
   text="BE REMEMBERED"
   className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
   duration={0.8}
-  start="0%"
   delay={0.1}
 />
             </div>
