@@ -1,5 +1,4 @@
 import React from "react";
-import VirtualSwiper from "../swiper/virtual-swiper";
 import gsap from "gsap";
 import Link from "next/link";
 import FeaturedProductsHeading from "./featured-products-heading";

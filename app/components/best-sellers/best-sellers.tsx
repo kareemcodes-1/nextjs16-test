@@ -1,7 +1,6 @@
 // best-sellers.tsx (server component)
 import Image from 'next/image';
 import React from 'react';
-import CenteredSwiper from '../swiper/centered-swiper';
 import Link from 'next/link';
 import BestSellersHeading from './best-sellers-heading';
 
