@@ -128,21 +128,20 @@ const Hero = () => {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[1.5rem] lg:gap-0">
             <div>
               <SplitLines
-                                tag="h1"
-                                text="BE REMEMBERED"
-                                className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
-                                duration={.8}
-                                rootMargin="-100px"
-
-                              />
-                 <SplitLines
-                                tag="h1"
-                                text="BE REMEMBERED"
-                                className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
-                                duration={.8}
-                                rootMargin="-100px"
-
-                              />
+  tag="h1"
+  text="JEWELLERY MADE TO"
+  className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
+  duration={0.8}
+  start="top 90%"
+/>
+<SplitLines
+  tag="h1"
+  text="BE REMEMBERED"
+  className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
+  duration={0.8}
+  start="top 90%"
+  delay={0.1}
+/>
             </div>
 
             <div className="overflow-hidden h-[3.5rem] lg:h-[4.5rem]">

@@ -4,8 +4,9 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import SplitText from "gsap/SplitText";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(useGSAP, SplitText);
+gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger);
 
 export interface SplitLinesProps {
   tag?: keyof React.JSX.IntrinsicElements;
@@ -15,8 +16,8 @@ export interface SplitLinesProps {
   stagger?: number;
   ease?: string;
   yPercent?: number;
-  threshold?: number;
-  rootMargin?: string;
+  start?: string;
+  delay?: number;
 }
 
 export const SplitLines: React.FC<SplitLinesProps> = ({
@@ -27,57 +28,45 @@ export const SplitLines: React.FC<SplitLinesProps> = ({
   stagger = 0.1,
   ease = "power3.out",
   yPercent = 100,
-  threshold = 0.1,
-  rootMargin = "0px",
+  start = "top 90%",
+  delay = 0,
 }) => {
   const containerRef = useRef<HTMLElement>(null);
-  const animated = useRef(false);
 
   useGSAP(
     () => {
-      if (!containerRef.current || animated.current) return;
+      if (!containerRef.current) return;
 
-      // 1. Outer split FIRST — creates the mask wrappers
       const outerSplit = new SplitText(containerRef.current, {
         type: "lines",
         linesClass: "split-outer",
       });
 
-      // 2. Inner split SECOND — splits inside the already-wrapped lines
       const innerSplit = new SplitText(outerSplit.lines, {
         type: "lines",
         linesClass: "split-inner",
       });
 
-      // 3. Outer lines act as overflow:hidden masks; inner lines start offscreen
       gsap.set(outerSplit.lines, { overflow: "hidden" });
       gsap.set(innerSplit.lines, { yPercent });
 
-      // 4. Intersection Observer triggers the animation
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (!entry.isIntersecting) return;
-
-          animated.current = true;
-
-          gsap.to(innerSplit.lines, {
-            yPercent: 0,
-            duration,
-            stagger,
-            ease,
-          });
-
-          observer.disconnect();
+      gsap.to(innerSplit.lines, {
+        yPercent: 0,
+        duration,
+        stagger,
+        ease,
+        delay,
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start,         // e.g. "top 90%" — when top of element hits 90% of viewport
+          toggleActions: "play none none none", // plays once, doesn't reverse
         },
-        { threshold, rootMargin }
-      );
-
-      observer.observe(containerRef.current);
+      });
 
       return () => {
-        observer.disconnect();
         innerSplit.revert();
         outerSplit.revert();
+        ScrollTrigger.getAll().forEach((t) => t.kill());
       };
     },
     { scope: containerRef }
