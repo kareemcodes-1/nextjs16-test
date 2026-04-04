@@ -20,12 +20,12 @@ export default function Home() {
       <Hero />
 
       <About />
-      <Collections />
-      <FeaturedProducts />
+      {/* <Collections /> */}
+      {/* <FeaturedProducts /> */}
 
 
       {/* <VideoPreview /> */}
-      <BestSellers />
+      {/* <BestSellers /> */}
 
       <Testimonials />
 
