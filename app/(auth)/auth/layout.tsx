@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../../globals.css";
 import AuthProvider from "../../providers/provider";
 import ToastProvider from "../../providers/toast-provider";
 import Navbar from "../../components/navbar/navbar";
