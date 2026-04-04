@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 import { Product } from "@/types";
 import { Link } from "lucide-react";
-import "react-loading-skeleton/dist/skeleton.css";
 import { priceFormatter } from "@/lib/priceFormatter";
 
 
