@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 const Navbar = () => {
     const [openModal, setOpenModal] = useState(false);
   return (
-    <div>
+    <div className="relative w-full">
        {openModal && (
          <div className='text-black'>
             Opened nav

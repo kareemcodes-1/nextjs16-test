@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { SplitLines } from "../../components/animations/SplitLines";
+// import { SplitLines } from "../../components/animations/SplitLines";
 
 
 
@@ -36,7 +36,7 @@ const Hero = () => {
         <div className="flex flex-col justify-end w-full h-full px-[1.5rem] lg:px-8 pb-[2rem] lg:pb-[1rem] relative z-[15]">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[1.5rem] lg:gap-0">
             <div>
-              <SplitLines
+              {/* <SplitLines
                 tag="h1"
                 text="JEWELLERY MADE TO"
                 className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
@@ -48,7 +48,7 @@ const Hero = () => {
                 className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
                 duration={0.8}
                 delay={0.1}
-              />
+              /> */}
             </div>
 
             <div className="overflow-hidden h-[3.5rem] lg:h-[4.5rem]">
