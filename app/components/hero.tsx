@@ -110,7 +110,7 @@ const Hero = () => {
       className="w-full h-screen sticky top-0"
     >
       <section  className="relative h-full w-full">
-        <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none overlay" />
+        {/* <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none overlay" />
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
             src="/hero.webp"
@@ -122,7 +122,7 @@ const Hero = () => {
             sizes="100vw"
             className="object-cover object-[60%] lg:object-top"
           />
-        </div>
+        </div> */}
 
         <div className="flex flex-col justify-end w-full h-full px-[1.5rem] lg:px-8 pb-[2rem] lg:pb-[1rem] relative z-[15]">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[1.5rem] lg:gap-0">
