@@ -1,9 +1,8 @@
 "use client";
-// import { useScroll, useTransform, motion } from "motion/react";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import {SplitLines} from "../../components/animations/SplitLines";
+import { SplitLines } from "../../components/animations/SplitLines";
 
 
 
@@ -14,103 +13,13 @@ const Hero = () => {
   const heroImage = useRef<HTMLImageElement | null>(null);
   const heroLink = useRef<HTMLAnchorElement | null>(null);
 
-  // const { scrollYProgress } = useScroll({
-  //   target: container,
-  //   offset: ["start start", "end start"],
-  // });
-
-
-
-  // const y = useTransform(scrollYProgress, [0, 1], ["0vh", "100vh"]);
-
-  // useEffect(() => {
-  //   const isMobile = window.innerWidth < 768;
-
-  //   heroHeadings.current.forEach((heading) => {
-  //     if (!heading) return;
-
-  //     let split = new SplitText(heading, { type: "chars" });
-
-  //     // Set initial state immediately — before animation runs
-  //     gsap.set(split.chars, { yPercent: 100, opacity: 0 });
-
-  //     gsap.to(split.chars, {
-  //       yPercent: 0,
-  //       opacity: 1,
-  //       duration: 1,
-  //       stagger: 0.025,
-  //       ease: "power3.out",
-  //       delay: 0.5,
-  //     });
-  //   });
-
-  //   if (heroImage.current) {
-  //     gsap.fromTo(
-  //       heroImage.current,
-  //       {
-  //         filter: "blur(20px)",
-  //         scale: 1.1,
-  //       },
-  //       {
-  //         filter: "blur(0px)",
-  //         scale: 1,
-  //         duration: 0.8,
-  //         ease: "power2.out",
-  //       }
-  //     );
-  //   }
-
-
-  //   gsap.to(container.current, {
-  //     duration: 2,
-  //     filter: "blur(1rem)",
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       trigger: container.current,
-  //       start: "top top",
-  //       end: "bottom-=30vh top",
-  //       scrub: 2,
-
-  //       onUpdate: (self) => {
-  //         const rotation = self.progress * 5;
-  //         const scale = 1 - self.progress * 0.1; // scales from 1 → 0.8
-
-  //         gsap.set(container.current, {
-  //           rotateZ: rotation,
-  //           scale: scale
-  //         });
-  //       },
-  //       // markers: true, // enable for debug
-  //       onLeave: () => {
-  //         gsap.set(container.current, { autoAlpha: 0 }); // hides after scrolling down
-  //       },
-  //       onEnterBack: () => {
-  //         gsap.set(container.current, { autoAlpha: 1 }); // show again when scrolling back up
-  //       },
-  //     },
-  //   });
-
-  //   if (!heroLink.current) return;
-
-  //   gsap.set(heroLink.current, { yPercent: 100, opacity: 0 });
-
-  //   gsap.to(heroLink.current, {
-  //     yPercent: 0,
-  //     opacity: 1,
-  //     duration: 0.8,
-  //     ease: "power3.out",
-  //     delay: 0.3,
-  //   });
-
-  // }, []);
-
   return (
     <div
       ref={container}
       className="w-full h-screen sticky top-0"
     >
-      <section  className="relative h-full w-full">
-        {/* <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none overlay" />
+      <section className="relative h-full w-full">
+        <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none overlay" />
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <Image
             src="/hero.webp"
@@ -122,24 +31,24 @@ const Hero = () => {
             sizes="100vw"
             className="object-cover object-[60%] lg:object-top"
           />
-        </div> */}
+        </div>
 
         <div className="flex flex-col justify-end w-full h-full px-[1.5rem] lg:px-8 pb-[2rem] lg:pb-[1rem] relative z-[15]">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-[1.5rem] lg:gap-0">
             <div>
               <SplitLines
-  tag="h1"
-  text="JEWELLERY MADE TO"
-  className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
-  duration={0.8}
-/>
-<SplitLines
-  tag="h1"
-  text="BE REMEMBERED"
-  className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
-  duration={0.8}
-  delay={0.1}
-/>
+                tag="h1"
+                text="JEWELLERY MADE TO"
+                className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
+                duration={0.8}
+              />
+              <SplitLines
+                tag="h1"
+                text="BE REMEMBERED"
+                className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
+                duration={0.8}
+                delay={0.1}
+              />
             </div>
 
             <div className="overflow-hidden h-[3.5rem] lg:h-[4.5rem]">
