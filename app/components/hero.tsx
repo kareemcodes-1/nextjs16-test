@@ -130,13 +130,13 @@ const Hero = () => {
               <SplitLines
   tag="h1"
   text="JEWELLERY MADE TO"
-  className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
+  className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
   duration={0.8}
 />
 <SplitLines
   tag="h1"
   text="BE REMEMBERED"
-  className="block text-white uppercase tracking-[0.03em] text-[6rem] leading-none"
+  className="block text-white uppercase tracking-[0.03em] text-[2rem] lg:text-[6rem] leading-none"
   duration={0.8}
   delay={0.1}
 />
