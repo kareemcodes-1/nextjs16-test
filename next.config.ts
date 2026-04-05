@@ -1,7 +1,7 @@
 const nextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "framerusercontent.com" },
