@@ -6,11 +6,11 @@ const Navbar = () => {
   return (
     <div>
        {openModal && (
-         <div className=''>
+         <div className='text-black'>
             Opened nav
         </div>
        )}
-        <button className='cursor-pointer text-white ' onClick={() => setOpenModal(!openModal)}>Open</button>
+        <button className='cursor-pointer text-black ' onClick={() => setOpenModal(!openModal)}>Open</button>
     </div>
   )
 }
